@@ -1,26 +1,34 @@
+/* Importe les styles de base, composants et utilitaires de Tailwind */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+C'est ici que la magie de Tailwind v4 opère.
+Nous définissons nos "design tokens" CSS directement.
+Plus besoin de tailwind.config.ts pour la configuration de base !
+*/
+@theme {
+  --color-primary: #1e1b73;
+  --color-primary-50: #f5f5fb;
+  --color-primary-100: #e8e7f5;
+  --color-primary-200: #d1d0eb;
+  --color-primary-300: #aba9dd;
+  --color-primary-400: #7f7ccb;
+  --color-primary-500: #5f5bbb;
+  --color-primary-600: #4a46a9;
+  --color-primary-700: #3d3a8e;
+  --color-primary-800: #302e7a; /* Ajusté pour un meilleur dégradé */
+  --color-primary-900: #262464; /* Ajusté pour un meilleur dégradé */
+  --color-primary-950: #1a1860; /* Ajusté pour un meilleur dégradé */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Configuration des espacements pour être généreux */
+  --spacing-24: 6rem; /* 96px (hauteur header) */
+  --spacing-80: 20rem; /* 320px (largeur sidebar) */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  /* Tailles de police pour les formulaires */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Rayons pour les coins arrondis modernes */
+  --border-radius-2xl: 1rem; /* 16px */
+  --border-radius-3xl: 1.5rem; /* 24px */
 }
