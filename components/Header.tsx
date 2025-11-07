@@ -68,10 +68,9 @@ export default function Header({ onMenuClick }: HeaderProps) {
           </div>
         </div>
 
-        {/* 4. Bouton de déconnexion mis à jour */}
         <button
           onClick={handleLogout}
-          disabled={isLoggingOut} // <-- NOUVEAU : Désactivé pendant la déconnexion
+          disabled={isLoggingOut}
           className="text-gray-600 hover:text-red-500 disabled:opacity-50"
           title="Se déconnecter"
         >

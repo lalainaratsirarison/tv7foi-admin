@@ -66,12 +66,10 @@ export const useUpdateVideo = () => {
 
   return useMutation<Video, Error, { id: string; data: UpdateVideoDto }>({
     mutationFn: async ({ id, data: updateData }) => {
-      // @TODO: Gérer l'upload de fichiers
       const { data } = await api.patch(`/videos/${id}`, updateData);
       return data;
     },
     onSuccess: (updatedVideo) => {
-      // Invalide la liste et la vidéo spécifique
       queryClient.invalidateQueries({ queryKey: ["videos"] });
       queryClient.invalidateQueries({ queryKey: ["video", updatedVideo.id] });
       alert('Changements Faites');

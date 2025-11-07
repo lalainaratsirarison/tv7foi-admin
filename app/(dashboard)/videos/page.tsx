@@ -96,19 +96,19 @@ export default function VideosPage() {
 
               <div className="p-6 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
                 <Link
+                  title="Modifier"
                   href={`/videos/${video.id}/edit`}
                   className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition"
                 >
                   <Edit size={18} />
-                  <span>Modifier</span>
                 </Link>
                 <button
+                  title="Supprimer"
                   onClick={() => openModal(video.id)}
                   disabled={isDeleting}
                   className="flex items-center space-x-2 text-red-600 hover:text-red-800 transition disabled:opacity-50 cursor-pointer"
                 >
                   <Trash2 size={18} />
-                  <span>Supprimer</span>
                 </button>
               </div>
             </div>

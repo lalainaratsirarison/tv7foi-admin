@@ -32,3 +32,7 @@ Plus besoin de tailwind.config.ts pour la configuration de base !
   --border-radius-2xl: 1rem; /* 16px */
   --border-radius-3xl: 1.5rem; /* 24px */
 }
+
+button {
+  cursor: pointer;
+}

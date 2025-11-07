@@ -9,11 +9,21 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.5",
+    "@tiptap/extension-bullet-list": "^3.10.2",
+    "@tiptap/extension-color": "^3.10.2",
+    "@tiptap/extension-link": "^3.10.2",
+    "@tiptap/extension-list-item": "^3.10.2",
+    "@tiptap/extension-ordered-list": "^3.10.2",
+    "@tiptap/extension-placeholder": "^3.10.2",
+    "@tiptap/extension-text-style": "^3.10.2",
+    "@tiptap/react": "^3.10.2",
+    "@tiptap/starter-kit": "^3.10.2",
     "axios": "^1.13.1",
     "lucide-react": "^0.548.0",
     "next": "16.0.1",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-hot-toast": "^2.6.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.16",
