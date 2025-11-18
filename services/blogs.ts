@@ -2,6 +2,8 @@
 import { useRouter } from 'next/navigation';
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import api from "@/lib/api";
+import { Image } from '@/types'; 
+export { useAddImagesToBlog, useRemoveImagesFromBlog, useDeleteImage, useGetImages } from './images';
 
 export type Blog = {
   id: string;
@@ -13,6 +15,7 @@ export type Blog = {
   createdAt: string;
   updatedAt: string; 
   category?: { id: string, name: string } | null; 
+  images: Image[];
 };
 
 export type CreateBlogData = {
@@ -36,7 +39,7 @@ export const useGetBlogs = () => useQuery<Blog[], Error>({
 // 2. READ (Un) : Récupérer un seul article
 export const useGetBlog = (blogId: string) => useQuery<Blog, Error>({
   queryKey: ["blogs", blogId],
-  queryFn: async () => (await api.get(`/blogs/id/${blogId}`)).data,
+  queryFn: async () => (await api.get(`/blogs/id/${blogId}?includeImages=true`)).data,
   enabled: !!blogId,
 });
 

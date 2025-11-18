@@ -5,7 +5,7 @@ import { Plus, Edit, Trash2, Loader2, BookOpen } from "lucide-react";
 import { useGetBlogs, useDeleteBlog, Blog } from "@/services/blogs";
 import { useMemo, useState } from "react";
 import toast from 'react-hot-toast';
-import ConfirmDeleteModal from "@/components/ConfirmDeleteModal";
+import ConfirmDeleteModal from "@/components/ui/ConfirmDeleteModal";
 
 
 export default function BlogsPage() {

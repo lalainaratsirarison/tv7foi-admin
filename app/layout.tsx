@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Providers from "./providers"; // Importe notre QueryClientProvider
+import Providers from "./providers";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,11 +19,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${inter.className} bg-primary-50 text-gray-900`}>
-        {/*
-          On enveloppe toute l'application avec le Provider
-          pour que React Query soit disponible partout.
-        */}
         <Providers>{children}</Providers>
+        <Footer></Footer>
       </body>
     </html>
   );

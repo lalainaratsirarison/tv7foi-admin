@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useGetVideos, useDeleteVideo } from "@/services/videos";
-import ConfirmDeleteModal from "@/components/ConfirmDeleteModal";
+import ConfirmDeleteModal from "@/components/ui/ConfirmDeleteModal";
 import {
   Plus,
   Loader2,
@@ -74,7 +74,7 @@ export default function VideosPage() {
             >
               <div className="relative w-full aspect-video">
                 <Image
-                  src={`http://127.0.0.1:3001/${video.thumbnail}`}
+                  src={process.env.NEXT_PUBLIC_STATIC_URL + video.thumbnail}
                   alt={video.title || "Miniature"}
                   layout="fill"
                   objectFit="cover"

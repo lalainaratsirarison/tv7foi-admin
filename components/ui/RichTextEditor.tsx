@@ -244,17 +244,27 @@ export const RichTextEditorComponent: React.FC<RichTextEditorProps> = ({
 
   const editor = useEditor({
     extensions: [
+      // 💡 CORRECTION : On désactive les extensions dupliquées dans StarterKit
       StarterKit.configure({
-        codeBlock: false, 
+        codeBlock: false,
         // DÉSACTIVER LES NODES DE BLOC POUR LES AJOUTER SÉPARÉMENT
-        bulletList: false, 
+        bulletList: false,
         orderedList: false,
         listItem: false,
+        // 🔴 IMPORTANT : Désactiver heading dans StarterKit car nous le gérons manuellement
+        heading: {
+          levels: [1, 2, 3, 4, 5, 6],
+        },
+        // Désactiver 'underline' et 'link' pour les ajouter manuellement
+        underline: false,
+        link: false,
       }),
-      Underline.configure(), 
+      // On ajoute 'Underline' manuellement.
+      Underline,
+      // On ajoute 'Link' manuellement avec une configuration spécifique.
       Link.configure({
         openOnClick: false,
-        validate: href => /^https?:\/\//.test(href) || /^mailto:/.test(href),
+        validate: (href) => /^https?:\/\//.test(href) || /^mailto:/.test(href),
       }),
       Placeholder.configure({
         placeholder: placeholder,

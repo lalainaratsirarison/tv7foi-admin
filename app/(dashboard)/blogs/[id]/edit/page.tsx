@@ -2,7 +2,7 @@
 
 import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Save, Loader2 } from "lucide-react";
+import { ArrowLeft, Save, Loader2, Image } from "lucide-react";
 import Link from "next/link";
 import toast from 'react-hot-toast'; 
 import { 
@@ -12,6 +12,8 @@ import {
   // Assurez-vous d'importer le type pour la mise à jour si nécessaire, ou utilisez 'any' pour l'exemple
 } from "@/services/blogs"; 
 import dynamic from "next/dynamic";
+import Modal from "@/components/ui/Modal";
+import BlogImageManager from "@/components/BlogImageManager";
 
 
 const RichTextEditor = dynamic(
@@ -36,6 +38,7 @@ export default function EditBlogPage({ params }: { params: Promise<{ id: string 
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState(""); 
   const [categoryId, setCategoryId] = useState(""); 
+  const [isImageManagerOpen, setIsImageManagerOpen] = useState(false);
 
   // 1. Récupération des données du blog existant
   const { 
@@ -203,6 +206,23 @@ export default function EditBlogPage({ params }: { params: Promise<{ id: string 
           />
         </div>
 
+        {/* GESTION DES IMAGES ASSOCIÉES */}
+        <div>
+            <h3 className="text-lg font-medium text-gray-700 mb-2">Images de l'article</h3>
+            <div className="p-6 border-2 border-gray-200 rounded-2xl">
+                <p className="text-sm text-gray-600 mb-4">
+                    Gérez les images qui apparaissent dans la galerie de cet article.
+                </p>
+                <button
+                    type="button"
+                    onClick={() => setIsImageManagerOpen(true)}
+                    className="px-6 py-3 text-lg font-semibold text-primary-800 border-2 border-primary-800 rounded-xl hover:bg-primary-50 transition"
+                >
+                    Gérer les images
+                </button>
+            </div>
+        </div>
+
         {/* Bouton de soumission */}
         <div className="flex justify-end pt-6">
           <button
@@ -215,6 +235,18 @@ export default function EditBlogPage({ params }: { params: Promise<{ id: string 
           </button>
         </div>
       </form>
+
+      {/* MODALE POUR LE BLOG IMAGE MANAGER */}
+      <Modal
+        open={isImageManagerOpen}
+        onClose={() => setIsImageManagerOpen(false)}
+        title={`Gérer les images pour : ${blogData.title}`}
+      >
+        <BlogImageManager 
+          blog={blogData} 
+          onClose={() => setIsImageManagerOpen(false)} 
+        />
+      </Modal>
     </div>
   );
 }

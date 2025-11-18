@@ -58,11 +58,21 @@ export interface Video {
 // Interface pour le modèle Image
 export interface Image {
   id: string;
+  path: string;
   title?: string | null;
   alt?: string | null;
-  path: string;
   blogId?: string | null;
-  blog?: Blog | null;
+  sliderId?: string | null;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+// Interface pour le modèle Slider
+export interface Slider {
+  id: string;
+  title: string;
+  isActive: boolean;
+  images: Image[];
   createdAt: string;
   updatedAt: string;
 }

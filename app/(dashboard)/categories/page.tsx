@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useGetCategories, useCreateCategory, useDeleteCategory, useRenameCategory, Category } from "@/services/categories";
 import { Loader2, Plus, Edit, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import ConfirmDeleteModal from "@/components/ConfirmDeleteModal";
+import ConfirmDeleteModal from "@/components/ui/ConfirmDeleteModal";
 import RenameCategoryModal from "@/components/RenameCategoryModal";
 import toast from "react-hot-toast";
 

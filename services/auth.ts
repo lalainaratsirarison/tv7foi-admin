@@ -38,6 +38,7 @@ export const useLogin = () => {
   return useMutation<AuthResponse, Error, LoginCredentials>({
     mutationFn: async (credentials) => {
       // Appelle le backend
+      
       const { data } = await api.post("/auth/login", credentials);
       return data;
     },
@@ -55,8 +56,6 @@ export const useLogin = () => {
     },
     onError: (error) => {
       console.error("Erreur de connexion:", error.message);
-      // @TODO: Afficher une notification d'erreur à l'utilisateur
-      // (ex: "Email ou mot de passe incorrect")
     },
   });
 };

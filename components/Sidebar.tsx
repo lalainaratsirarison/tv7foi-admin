@@ -10,6 +10,8 @@ import {
   FileImage,
   BookMarked,
   X,
+  Images,
+  FileVideo, // 🟢 NOUVEL IMPORT
 } from "lucide-react";
 
 // Définition d'un type pour les liens de navigation
@@ -22,7 +24,12 @@ type NavLink = {
 // Nos liens de navigation
 const navLinks: NavLink[] = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/sliders", label: "Sliders", icon: Images },
   { href: "/videos", label: "Vidéos", icon: Video },
+  
+  // 🟢 NOUVEAU LIEN FLV
+  { href: "/live", label: "Replays (FLV)", icon: FileVideo },
+  
   { href: "/blogs", label: "Blogs", icon: BookText },
   { href: "/categories", label: "Catégories", icon: Tags },
   { href: "/verses", label: "Versets", icon: BookMarked },
@@ -70,7 +77,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 py-8 px-6 space-y-4">
+        <nav className="flex-1 py-8 px-6 space-y-4 overflow-y-auto">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -84,13 +91,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 }
               `}
             >
-              <link.icon className="w-6 h-6" />
+              <link.icon className="w-6 h-6 flex-shrink-0" />
               <span>{link.label}</span>
             </Link>
           ))}
         </nav>
-
-        {/* @TODO: Zone utilisateur en bas de sidebar ? */}
       </aside>
 
       {/* Overlay pour le mode mobile */}
